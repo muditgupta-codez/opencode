@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Forge Studio
+Exec=/opt/ForgeStudio/com.forgestudio.app %U
+Terminal=false
+Type=Application
+Icon=com.forgestudio.app
+StartupWMClass=com.forgestudio.app
+NoDisplay=true
+Comment=AI-powered development tool
+Categories=Development;

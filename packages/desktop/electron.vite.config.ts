@@ -5,13 +5,6 @@ import * as fs from "node:fs/promises"
 
 const OPENCODE_SERVER_DIST = "../opencode/dist/node"
 
-const channel = (() => {
-  const raw = process.env.OPENCODE_CHANNEL
-  if (raw === "dev" || raw === "beta" || raw === "prod") return raw
-  if (process.env.OPENCODE_CHANNEL === "latest") return "prod"
-  return "dev"
-})()
-
 const nodePtyPkg = `@lydell/node-pty-${process.platform}-${process.arch}`
 
 const sentry =
@@ -34,7 +27,7 @@ const sentry =
 export default defineConfig({
   main: {
     define: {
-      "import.meta.env.OPENCODE_CHANNEL": JSON.stringify(channel),
+      "import.meta.env.OPENCODE_CHANNEL": JSON.stringify("prod"),
     },
     build: {
       rollupOptions: {

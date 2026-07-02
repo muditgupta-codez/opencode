@@ -1,13 +1,13 @@
 {
-  "name": "@opencode-ai/desktop",
+  "name": "@forge-studio/desktop",
   "private": true,
-  "version": "1.17.13",
+  "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://opencode.ai",
+  "homepage": "https://forge-studio.dev",
   "author": {
-    "name": "OpenCode",
-    "email": "hello@opencode.ai"
+    "name": "Forge Studio",
+    "email": "hello@forge-studio.dev"
   },
   "scripts": {
     "typecheck": "tsgo -b",
