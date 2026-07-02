@@ -13,11 +13,7 @@ permissions:
 
 jobs:
   build-windows:
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [x64, arm64]
-    runs-on: ${{ matrix.arch == 'arm64' && 'windows-2025-arm' || 'windows-latest' }}
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -28,12 +24,12 @@ jobs:
         working-directory: packages/desktop
 
       - name: Package
-        run: npx electron-builder --win ${{ matrix.arch == 'arm64' && '--arm64' || '' }} --publish never --config electron-builder.config.ts
+        run: npx electron-builder --win --publish never --config electron-builder.config.ts
         working-directory: packages/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/upload-artifact@v4
         with:
-          name: forge-studio-windows-${{ matrix.arch }}
+          name: forge-studio-windows-x64
           path: packages/desktop/dist/*
